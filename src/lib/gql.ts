@@ -13,11 +13,11 @@ export async function gql<T>(query: string, variables?: Record<string, unknown>)
     });
     const payload = (await res.json()) as ExecutionResult<T>;
     if (payload.errors?.length) throw new Error(payload.errors.map((e) => e.message).join("; "));
-    return payload.data as T;
+    return JSON.parse(JSON.stringify(payload.data)) as T;
   }
   const result = await graphql({ schema, source: query, variableValues: variables });
   if (result.errors?.length) throw new Error(result.errors.map((e) => e.message).join("; "));
-  return result.data as T;
+  return JSON.parse(JSON.stringify(result.data)) as T;
 }
 
 export const HOME_QUERY = /* GraphQL */ `
