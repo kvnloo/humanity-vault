@@ -1,0 +1,13 @@
+{
+  "name": "Humanity's Vault",
+  "short_name": "Vault",
+  "description": "Open learning OS for frontier LLM knowledge. Encode, retrieve, rest, prune.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07070a",
+  "theme_color": "#07070a",
+  "orientation": "portrait",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "humanity-vault",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Mobile-first GraphQL learning OS for frontier-kb. Human synergy loop: encode, retrieve, rest, measure, prune.",
+  "scripts": {
+    "dev": "next dev --port 3000",
+    "build": "NEXT_TELEMETRY_DISABLED=1 next build",
+    "start": "next start --port 3000",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "graphql": "^16.11.0",
+    "next": "^15.5.2",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.18.0",
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
+    "typescript": "^5.9.2"
+  }
+}
