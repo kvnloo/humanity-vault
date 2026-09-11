@@ -1,30 +1,23 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { useTransition } from "react";
+import { useState, useTransition } from "react";
+import { mutatePrune } from "@/lib/client-mutate";
 
 export function PruneButton({ id }: { id: string }) {
-  const router = useRouter();
   const [pending, start] = useTransition();
+  const [done, setDone] = useState(false);
   return (
     <button
       className="btn danger"
-      disabled={pending}
+      disabled={pending || done}
       onClick={() =>
         start(async () => {
-          await fetch("/api/graphql", {
-            method: "POST",
-            headers: { "content-type": "application/json" },
-            body: JSON.stringify({
-              query: "mutation P($id: ID!) { prune(noteId: $id, actor: \"human-vault\") { id status } }",
-              variables: { id },
-            }),
-          });
-          router.refresh();
+          await mutatePrune(id);
+          setDone(true);
         })
       }
     >
-      Prune
+      {done ? "Pruned" : "Prune"}
     </button>
   );
 }

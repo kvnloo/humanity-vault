@@ -1,25 +1,16 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
+import { mutateRetrieve } from "@/lib/client-mutate";
 
 export function RetrievalActions({ id }: { id: string }) {
-  const router = useRouter();
   const [pending, start] = useTransition();
   const [msg, setMsg] = useState<string | null>(null);
 
-  async function mark(recalled: boolean) {
+  function mark(recalled: boolean) {
     start(async () => {
-      await fetch("/api/graphql", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          query: "mutation R($id: ID!, $recalled: Boolean!) { retrieve(noteId: $id, recalled: $recalled, actor: \"human-vault\") { id weight } }",
-          variables: { id, recalled },
-        }),
-      });
+      await mutateRetrieve(id, recalled);
       setMsg(recalled ? "Potentiated." : "Miss logged. Weight downscaled.");
-      router.refresh();
     });
   }
 

@@ -1,10 +1,13 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { RetrievalActions } from "@/components/RetrievalActions";
+import { allNotes } from "@/lib/brain";
 import { gql } from "@/lib/gql";
 import type { Note, Synapse } from "@/lib/cycle";
 
-export const dynamic = "force-dynamic";
+export function generateStaticParams() {
+  return allNotes().map((n) => ({ id: n.id }));
+}
 
 export default async function NotePage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;

@@ -18,6 +18,13 @@ Cutting-edge LLM knowledge dies if it is only dumped into markdown. The loop is:
 
 This is a social experiment and an open repository of knowledge. No personal health data. Protocols here are learning-system design, not medical advice.
 
+**Preview:** https://kvnloo.github.io/humanity-vault/
+
+## GitHub Actions
+
+- `ci` — lint + `next build` on every push
+- `preview` — static export to GitHub Pages on `main` (`/humanity-vault`)
+
 ## Run
 
 ```bash

@@ -2,8 +2,6 @@ import Link from "next/link";
 import { gql } from "@/lib/gql";
 import type { Note } from "@/lib/cycle";
 
-export const dynamic = "force-dynamic";
-
 export default async function LlmsPage() {
   const data = await gql<{ llmFrontier: Note[] }>(
     `query { llmFrontier { id title distilled weight type } }`,

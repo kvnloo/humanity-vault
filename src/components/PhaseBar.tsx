@@ -1,25 +1,18 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { useTransition } from "react";
+import { useState, useTransition } from "react";
 import type { CyclePhase } from "@/lib/cycle";
 import { PHASES } from "@/lib/cycle";
+import { mutateCycle } from "@/lib/client-mutate";
 
 export function PhaseBar({ phase }: { phase: CyclePhase }) {
-  const router = useRouter();
+  const [current, setPhase] = useState(phase);
   const [pending, start] = useTransition();
 
-  function setPhase(next: CyclePhase) {
+  function pick(next: CyclePhase) {
     start(async () => {
-      await fetch("/api/graphql", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          query: "mutation C($phase: CyclePhase!) { startCycle(phase: $phase, actor: \"human-vault\") { phase } }",
-          variables: { phase: next },
-        }),
-      });
-      router.refresh();
+      await mutateCycle(next);
+      setPhase(next);
     });
   }
 
@@ -29,9 +22,9 @@ export function PhaseBar({ phase }: { phase: CyclePhase }) {
         <button
           key={item}
           className="chip"
-          data-on={item === phase ? "true" : "false"}
+          data-on={item === current ? "true" : "false"}
           disabled={pending}
-          onClick={() => setPhase(item)}
+          onClick={() => pick(item)}
         >
           {item.toLowerCase()}
         </button>

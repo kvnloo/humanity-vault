@@ -12,8 +12,6 @@ type HomeData = {
   brain: { neurons: number; synapses: number; meanWeight: number; pruneCandidates: number };
 };
 
-export const dynamic = "force-dynamic";
-
 export default async function HomePage() {
   const data = await gql<HomeData>(HOME_QUERY);
   const encodeNotes = data.cluster.notes.filter((n) => n.type === "permanent").slice(0, 3);

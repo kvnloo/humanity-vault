@@ -3,8 +3,6 @@ import { RetrievalActions } from "@/components/RetrievalActions";
 import { gql } from "@/lib/gql";
 import type { Note } from "@/lib/cycle";
 
-export const dynamic = "force-dynamic";
-
 export default async function RetrievePage() {
   const data = await gql<{ dueRetrievals: Note[] }>(
     `query { dueRetrievals(limit: 8) { id title distilled weight retrievalDue } }`,

@@ -3,8 +3,6 @@ import { PruneButton } from "@/components/PruneButton";
 import { gql } from "@/lib/gql";
 import type { Note } from "@/lib/cycle";
 
-export const dynamic = "force-dynamic";
-
 export default async function PrunePage() {
   const data = await gql<{ pruneCandidates: Note[] }>(
     `query { pruneCandidates(limit: 20) { id title distilled type weight status } }`,

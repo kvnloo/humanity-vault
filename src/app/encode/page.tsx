@@ -2,8 +2,6 @@ import Link from "next/link";
 import { gql } from "@/lib/gql";
 import type { Note } from "@/lib/cycle";
 
-export const dynamic = "force-dynamic";
-
 export default async function EncodePage() {
   const data = await gql<{ cluster: { notes: Note[] } }>(
     `query { cluster(id: LEARNING_ACCELERATION) { notes { id title distilled type weight } } }`,

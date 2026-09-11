@@ -2,8 +2,6 @@ import Link from "next/link";
 import { gql } from "@/lib/gql";
 import type { Note, ProtocolStep } from "@/lib/cycle";
 
-export const dynamic = "force-dynamic";
-
 export default async function MeasurePage() {
   const data = await gql<{
     brain: { neurons: number; synapses: number; meanWeight: number; pruneCandidates: number };

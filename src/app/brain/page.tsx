@@ -2,8 +2,6 @@ import { BrainMap } from "@/components/BrainMap";
 import { gql } from "@/lib/gql";
 import type { Note, Synapse } from "@/lib/cycle";
 
-export const dynamic = "force-dynamic";
-
 export default async function BrainPage() {
   const data = await gql<{
     brain: {
