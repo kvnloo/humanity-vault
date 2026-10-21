@@ -2,6 +2,8 @@
 
 Product-owner draft, 2026-10-20 America/Chicago / 2026-10-21 UTC. Continuation of [Human Capability Loop #1](https://github.com/kvnloo/humanity-vault/issues/1), not a new product backlog or runtime. The [z0 ownership contract](https://github.com/kvnloo/z0/issues/15) remains the architecture authority; [NOOP #90](https://github.com/kvnloo/noop/issues/90) remains the historical Limitless traceability index. This document proposes delivery order and integration acceptance. Nothing here certifies a deployed system, scientific benefit, exhaustive history retrieval, or an approved upstream change.
 
+> **Sequencing is owned by [oss-factory #212](https://github.com/kvnloo/oss-factory/issues/212).** The first executable step for the learning lane is **M0: use stock KMind Palace in `kvnloo/kmind-palace` for one real recall session and fix one observed friction.** The "V1 (first priority)" below is #212's **M1** (capture), which starts only if M0 shows capture/content is the bottleneck. This note was added by the 2026-10-20 audit ([details](https://github.com/kvnloo/oss-factory/issues/212#issuecomment-6308363665)); the rest of the document is unchanged.
+
 ## 1. Product thesis and first principles
 
 The useful interpretation of “NZT as software” is **compounding human capability with less friction and more agency**: help someone understand, remember, create, recover, collaborate, and act on goals they actually choose. It is not a pharmacological claim, limitless productivity mandate, or a new physiological score.
@@ -84,7 +86,7 @@ MemoryOS agent memory is not evidence of improved human recall. Anki/FSRS own sc
 
 ## 5. Three vertical slices, with a single first priority
 
-### V1 — Remember and use something learned from real work (first priority)
+### V1 — Remember and use something learned from real work (= oss-factory #212 M1, after M0)
 
 **Job:** “Turn one lesson from my selected repository or reviewed conversation excerpt into knowledge I can independently use later.”
 
